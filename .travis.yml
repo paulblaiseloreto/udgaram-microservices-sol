@@ -16,8 +16,8 @@ before_install:
   - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USERNAME" --password-stdin # set Docker username and password in Travis console
   - echo 'dockerhub credentials configured'
 install:
-  - docker-compose -f udacity-deployment/docker/docker-compose-build.yaml build --parallel 
-  - docker-compose -f udacity-deployment/docker/docker-compose-build.yaml push
+  - docker-compose -f udagram-deployment/docker/docker-compose-build.yaml build --parallel 
+  - docker-compose -f udagram-deployment/docker/docker-compose-build.yaml push
 script:
   - kubectl get pods
   - kubectl set image deployments/backend-feed backend-feed=juadel/udagram-feed-v2:latest
