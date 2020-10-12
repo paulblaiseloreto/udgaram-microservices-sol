@@ -20,5 +20,5 @@
         - kubectl set image deployments/backend-feed backend-feed=mrpaulblaise/udagram-api-feed:latest
         - kubectl set image deployments/backend-user backend-user=mrpaulblaise/udagram-api-user:latest
         - kubectl set image deployments/frontend frontend=mrpaulblaise/udagram-frontend:latest
-        - kubectl set image deployments/reverseproxy reverseproxy=mrpaulblaise/reverseproxy-v2:latest
+        - kubectl set image deployments/reverseproxy reverseproxy=mrpaulblaise/reverseproxy:latest
       
