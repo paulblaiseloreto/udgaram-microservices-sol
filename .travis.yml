@@ -12,5 +12,4 @@
       - chmod +x ./kubectl
       - sudo mv ./kubectl /usr/local/bin/kubectl
   install: 
-        - pwd
-      - docker-compose -f ./docker-compose-build.yaml build --parallel 
+      - docker-compose -f udagram-deployment/docker/docker-compose-build.yaml build --parallel 
