@@ -11,5 +11,14 @@
       - curl -LO https://storage.googleapis.com/kubernetes-release/release/$(curl -s https://storage.googleapis.com/kubernetes-release/release/stable.txt)/bin/linux/amd64/kubectl
       - chmod +x ./kubectl
       - sudo mv ./kubectl /usr/local/bin/kubectl
-  install: 
-      - docker-compose -f udagram-deployment/docker/docker-compose-build.yaml build --parallel 
+    install: 
+      - docker-compose -f udagram-deployment/docker/docker-compose-build.yaml build --parallel  
+    after_success: 
+        - docker-compose -f udagram-deployment/docker/docker-compose-build.yaml push
+    script:
+        - kubectl get pods
+        - kubectl set image deployments/backend-feed backend-feed=mrpaulblaise/udagram-api-feed:latest
+        - kubectl set image deployments/backend-user backend-user=mrpaulblaise/udagram-api-user:latest
+        - kubectl set image deployments/frontend frontend=mrpaulblaise/udagram-frontend:latest
+        - kubectl set image deployments/reverseproxy reverseproxy=mrpaulblaise/reverseproxy-v2:latest
+      
