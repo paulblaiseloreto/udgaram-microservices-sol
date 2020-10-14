@@ -1,9 +1,9 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
+  name: reverseproxy
   labels:
     app: reverseproxy
-  name: reverseproxy
 spec:
   replicas: 1
   selector:
@@ -15,16 +15,16 @@ spec:
         app: reverseproxy
     spec:
       containers:
-      - image: mrpaulblaise/reverseproxy
-        name: reverseproxy
-        imagePullPolicy: Always          
+      - name: reverseproxy
+        image: mrpaulblaise/reverseproxy
+        imagePullPolicy: Always
         resources:
           requests:
             memory: "64Mi"
             cpu: "250m"
           limits:
             memory: "1024Mi"
-            cpu: "500m"       
+            cpu: "500m"
         ports:
         - containerPort: 8080
       restartPolicy: Always
