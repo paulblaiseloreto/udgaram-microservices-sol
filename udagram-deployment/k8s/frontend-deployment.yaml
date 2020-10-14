@@ -13,7 +13,7 @@ spec:
         api: external        
     spec:
       containers:
-      - image: udagram-frontend:local
+      - image: mrpaulblaise/udagram-frontend:local
         name: frontend
         imagePullPolicy: Always          
         ports:
