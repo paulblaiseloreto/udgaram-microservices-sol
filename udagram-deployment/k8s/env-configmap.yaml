@@ -1,13 +1,12 @@
 apiVersion: v1
 kind: ConfigMap
 data:
-  AWS_BUCKET: udagram-331077312353-dev
-  AWS_PROFILE: default
-  AWS_REGION: ap-southeast-1
-  JWT_SECRET: JWT_SECRET
-  POSTGRES_DB: POSTGRES_DB
-  POSTGRES_HOST: cdr.cdcv3tlk8exq.ap-southeast-1.rds.amazonaws.com
-  URL: http://localhost:8100  #update this value once the frontend is up in the cluster.
+ AWS_BUCKET: udagram-331077312353-dev
+ AWS_PROFILE: default
+ AWS_REGION: ap-southeast-1
+ JWT_SECRET: hello
+ POSTGRESS_DB: cdr
+ POSTGRESS_HOST: cdr.cdcv3tlk8exq.ap-southeast-1.rds.amazonaws.com
+ URL: http://localhost:8100
 metadata:
-  name: env-config
-  
+ name: env-config
