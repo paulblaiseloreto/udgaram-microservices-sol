@@ -13,8 +13,8 @@
       - sudo mv ./kubectl /usr/local/bin/kubectl
     install: 
       - docker-compose -f udagram-deployment/docker/docker-compose-build.yaml build --parallel  
-    after_success: 
-        - docker-compose -f udagram-deployment/docker/docker-compose-build.yaml push
+      - docker-compose -f udagram-deployment/docker/docker-compose-build.yaml push
+        
     script:
         - kubectl get pods
         - kubectl set image deployments/backend-feed backend-feed=mrpaulblaise/udagram-api-feed:latest
